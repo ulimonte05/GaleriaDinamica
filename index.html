@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería ChatProp</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 20px;
+      z-index: 1000;
+    }
+    .container {
+      margin-top: 60px;
+      padding: 20px;
+    }
+    .image {
+      width: 100%;
+      max-width: 600px;
+      margin: 10px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    Galería de Fotos
+  </div>
+  <div class="container" id="gallery">
+    <!-- Las imágenes serán cargadas dinámicamente aquí -->
+  </div>
+  <script>
+    // Obtener los parámetros de la URL
+    const params = new URLSearchParams(window.location.search);
+    const gallery = document.getElementById('gallery');
+
+    // Iterar sobre los parámetros y buscar los que empiecen con "url"
+    params.forEach((value, key) => {
+      if (key.startsWith('url')) {
+        // Crear un elemento <img> y configurarlo con la URL
+        const img = document.createElement('img');
+        img.src = value;
+        img.alt = "Imagen no disponible";
+        img.className = 'image';
+        gallery.appendChild(img);
+      }
+    });
+  </script>
+</body>
+</html>
