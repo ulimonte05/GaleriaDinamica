@@ -24,7 +24,7 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
     .container {
-      margin-top: 80px;
+      margin-top: 20px;
       padding: 20px;
       display: flex;
       flex-wrap: wrap;
@@ -45,19 +45,23 @@
     .back-button {
       position: fixed;
       bottom: 20px;
-      left: 20px;
-      background-color: #333;
+      width: 100%;
+      max-width: 300px; /* Igual al ancho máximo de las imágenes */
+      background-color: green;
       color: white;
+      left: 50%;
+      transform: translateX(-50%);
       border: none;
-      padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .back-button:hover {
       background-color: #555;
+      
       transform: translateY(-2px);
     }
     @media (max-width: 768px) {
@@ -73,9 +77,6 @@
   </style>
 </head>
 <body>
-  <div class="navbar">
-    Galería ChatProp
-  </div>
   <div class="container" id="gallery">
     <!-- Las imágenes serán cargadas dinámicamente aquí -->
   </div>
