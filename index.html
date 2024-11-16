@@ -7,7 +7,9 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
     }
     .navbar {
       position: fixed;
@@ -17,28 +19,67 @@
       color: white;
       padding: 10px 20px;
       text-align: center;
-      font-size: 20px;
+      font-size: 24px;
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
     .container {
-      margin-top: 60px;
+      margin-top: 80px;
       padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
     .image {
       width: 100%;
-      max-width: 600px;
-      margin: 10px auto;
-      display: block;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .back-button:hover {
+      background-color: #555;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        font-size: 20px;
+        padding: 10px 15px;
+      }
+      .back-button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="navbar">
-    Galería de Fotos
+    Galería ChatProp
   </div>
   <div class="container" id="gallery">
     <!-- Las imágenes serán cargadas dinámicamente aquí -->
   </div>
+  <button class="back-button" onclick="goBack()">Volver</button>
   <script>
     // Obtener los parámetros de la URL
     const params = new URLSearchParams(window.location.search);
@@ -55,6 +96,11 @@
         gallery.appendChild(img);
       }
     });
+
+    // Función para regresar a la página anterior
+    function goBack() {
+      window.history.back();
+    }
   </script>
 </body>
 </html>
